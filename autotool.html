@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f5f5f7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+    <title>AutoTool - 服務條款與隱私權政策</title>
+    <style>
+        :root {
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --card-sub-bg: #f9f9fb;
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent-blue: #0071e3;
+            --accent-blue-hover: #0077ed;
+            --accent-blue-tint: rgba(0, 113, 227, 0.08);
+            --border-color: rgba(0, 0, 0, 0.08);
+            --separator-color: rgba(60, 60, 67, 0.12);
+            --nav-bg: rgba(245, 245, 247, 0.82);
+            --segment-bg: rgba(118, 118, 128, 0.12);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.06);
+            --radius-outer: 24px;
+            --radius-inner: 16px;
+            --radius-pill: 980px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #000000;
+                --card-bg: #1c1c1e;
+                --card-sub-bg: #2c2c2e;
+                --text-primary: #f5f5f7;
+                --text-secondary: #86868b;
+                --accent-blue: #2997ff;
+                --accent-blue-hover: #47a6ff;
+                --accent-blue-tint: rgba(41, 151, 255, 0.14);
+                --border-color: rgba(255, 255, 255, 0.1);
+                --separator-color: rgba(84, 84, 88, 0.36);
+                --nav-bg: rgba(0, 0, 0, 0.82);
+                --segment-bg: rgba(118, 118, 128, 0.24);
+                --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+                --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.35);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 0;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+ 
+        header.nav-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--nav-bg);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 0.5px solid var(--border-color);
+            padding-top: max(12px, env(safe-area-inset-top));
+            padding-bottom: 12px;
+            padding-left: max(16px, env(safe-area-inset-left));
+            padding-right: max(16px, env(safe-area-inset-right));
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-content {
+            max-width: 780px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .app-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #0071e3 0%, #47a6ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0, 113, 227, 0.3);
+        }
+
+        .app-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: #ffffff;
+        }
+
+        .brand-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* iOS 風格的分段控制選單 (Segmented Control) */
+        .segmented-control {
+            display: inline-flex;
+            background-color: var(--segment-bg);
+            padding: 3px;
+            border-radius: var(--radius-pill);
+            user-select: none;
+        }
+
+        .segment-btn {
+            padding: 6px 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: var(--radius-pill);
+            transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+            white-space: nowrap;
+        }
+
+        .segment-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .segment-btn.active {
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+        }
+
+        /* 主容器 */
+        main.container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 24px 16px 48px;
+            padding-left: max(16px, env(safe-area-inset-left));
+            padding-right: max(16px, env(safe-area-inset-right));
+        }
+
+        /* 頁首介紹區塊 */
+        .hero-section {
+            text-align: center;
+            padding: 28px 12px 36px;
+        }
+
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+ 
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-outer);
+            padding: 30px;
+            margin-bottom: 28px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            scroll-margin-top: 76px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 22px 18px;
+                border-radius: var(--radius-inner);
+                margin-bottom: 20px;
+            }
+        }
+
+        .section-header {
+            margin-bottom: 22px;
+            padding-bottom: 14px;
+            border-bottom: 0.5px solid var(--separator-color);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        h2 {
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .date-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background-color: var(--segment-bg);
+            color: var(--text-secondary);
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: var(--radius-pill);
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.015em;
+            margin-top: 24px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 18px;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+
+        p {
+            font-size: 0.98rem;
+            line-height: 1.68;
+            margin-bottom: 14px;
+            color: var(--text-primary);
+        }
+
+        p.intro-text {
+            font-size: 1.02rem;
+            color: var(--text-secondary);
+            margin-bottom: 18px;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        li strong {
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        a:hover {
+            color: var(--accent-blue-hover);
+            text-decoration: underline;
+        }
+
+        /* Apple 專屬強調資訊框 (Subscription Plan Box) */
+        .apple-plan-box {
+            background-color: var(--accent-blue-tint);
+            border-radius: var(--radius-inner);
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(0, 113, 227, 0.15);
+        }
+
+        .plan-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .plan-item {
+            background-color: var(--card-bg);
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 0.5px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .plan-label {
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .plan-value {
+            font-size: 0.94rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Apple Intelligence 系統需求參考卡片 */
+        .ai-req-box {
+            background-color: var(--card-sub-bg);
+            border-radius: var(--radius-inner);
+            padding: 16px 18px;
+            margin: 16px 0 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .ai-req-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ai-req-list {
+            list-style: none !important;
+            padding-left: 0 !important;
+            margin: 0 !important;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ai-req-item {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-primary);
+            padding-left: 0 !important;
+        }
+
+        .ai-req-item strong {
+            color: var(--accent-blue);
+        }
+
+        .ai-req-sublist {
+            margin: 4px 0 0 16px;
+            color: var(--text-secondary);
+            font-size: 0.84rem;
+            line-height: 1.5;
+        }
+
+        /* 外部連結按鈕卡片 (Link Button) */
+        .external-button-row {
+            margin-top: 24px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .apple-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--accent-blue);
+            color: #ffffff !important;
+            padding: 10px 18px;
+            border-radius: var(--radius-pill);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none !important;
+            box-shadow: 0 2px 8px rgba(0, 113, 227, 0.28);
+            transition: transform 0.1s ease, background-color 0.15s ease;
+        }
+
+        .apple-btn:hover {
+            background-color: var(--accent-blue-hover);
+        }
+
+        .apple-btn:active {
+            transform: scale(0.98);
+        }
+
+        .apple-btn-secondary {
+            background-color: var(--segment-bg);
+            color: var(--text-primary) !important;
+            box-shadow: none;
+        }
+
+        .apple-btn-secondary:hover {
+            background-color: var(--separator-color);
+        }
+
+        /* 頁尾 (Footer) */
+        footer.apple-footer {
+            border-top: 0.5px solid var(--border-color);
+            padding: 36px 16px 28px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* 回到頂部按鈕 (Floating iOS Pill) */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: calc(24px + env(safe-area-inset-bottom));
+            right: 20px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.25s ease;
+            z-index: 99;
+        }
+
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            fill: none;
+        }
+    </style>
+</head>
+<body>
+ 
+    <header class="nav-header">
+        <div class="nav-content">
+            <a href="#" class="brand-link" aria-label="AutoTool 首頁">
+                <div class="app-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z"/>
+                        <circle cx="7.5" cy="14.5" r="1.5"/>
+                        <circle cx="16.5" cy="14.5" r="1.5"/>
+                    </svg>
+                </div>
+                <span class="brand-name">AutoTool</span>
+            </a>
+ 
+            <nav class="segmented-control" role="tablist">
+                <a href="#terms" class="segment-btn" id="tab-terms">使用條款</a>
+                <a href="#privacy" class="segment-btn" id="tab-privacy">隱私權政策</a>
+            </nav>
+        </div>
+    </header>
+ 
+    <main class="container">
+ 
+        <article id="terms" class="card">
+            <div class="section-header">
+                <h2>使用條款與 EULA</h2>
+                <span class="date-badge">生效日期：2026 年 10 月 14 日</span>
+            </div>
+
+            <p class="intro-text">
+                歡迎使用 AutoTool（以下簡稱「本 App」）。本 App 由 Tsang Hing Tat（以下簡稱「開發者」）提供。使用本 App 即表示你同意遵守以下使用條款及 Apple 官方標準終端使用者授權合約（Standard Apple EULA）。若你不同意這些條款，請勿使用本 App。
+            </p>
+
+            <h3>一、授權與標準 EULA</h3>
+            <p>
+                本 App 授予你個人、非獨佔、不可轉讓的權利，在所擁有或控制的相容 Apple 裝置上下載、安裝與使用。本條款適用 
+                <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Apple 標準終端使用者授權協議 (Standard Apple EULA)</a>。
+            </p>
+
+            <h3>二、自動續訂訂閱服務說明 (Auto-Renewable Subscriptions)</h3>
+            <p>本 App 提供「AutoTool Lite」自動續訂會員方案，為使用者解鎖多項進階行車功能：</p>
+
+            <div class="apple-plan-box">
+                <div class="plan-title">
+                    <span>AutoTool Lite 方案規格</span>
+                </div>
+                <div class="plan-grid">
+                    <div class="plan-item">
+                        <span class="plan-label">訂閱名稱</span>
+                        <span class="plan-value">AutoTool Lite 月租方案</span>
+                    </div>
+                    <div class="plan-item">
+                        <span class="plan-label">訂閱週期</span>
+                        <span class="plan-value">按月自動續訂（1 個月）</span>
+                    </div>
+                    <div class="plan-item">
+                        <span class="plan-label">參考價格</span>
+                        <span class="plan-value">NT$ 60 / 月 或 US$ 1.99 / 月*</span>
+                    </div>
+                </div>
+            </div>
+
+            <ul>
+                <li><strong>方案功能：</strong>包含路線匯出（GPX／KML）與採樣設定、智慧修復 GPS 屏蔽路段速度、行車速度與海拔高度圖表分析、歷史總體數據分析、AI 行程與即時路況總結等進階功能。</li>
+                <li><strong>AI 功能說明與免責：</strong>本 App 內所提及之「AI」功能係指整合或運用 Apple 所提供之 Apple Intelligence 技術與服務。AI 功能屬於實驗性質或輔助性質之附加功能，<strong>非屬永久或絕對之承諾功能</strong>；且<strong>僅限於裝置支援並在系統／App 設定中啟用 Apple Intelligence 相關選項時方可使用</strong>。相關服務是否能夠提供、支援的地區與語言、可用性、回應速度及功能表現，均可能因 Apple 官方政策調整、系統版本、硬體設備支援度或其他非開發者所能控制之 Apple 因素而有所變更、受限或中止提供。</li>
+                <li><strong>計費與自動續訂：</strong>確認購買後，款項將由你的 Apple ID 帳戶扣款。若未在當前計費週期結束前至少 24 小時關閉自動續訂，系統將自動為你續訂下一個週期的方案。</li>
+                <li><strong>管理與取消：</strong>你可隨時前往 iPhone 的「設定」>「Apple ID」>「訂閱項目」中管理或取消訂閱。</li>
+                <li><strong>恢復購買：</strong>已訂閱的使用者若更換裝置或重新安裝，可於 App 內訂閱管理頁面點擊「恢復購買」取回權益。</li>
+            </ul>
+
+            <div class="ai-req-box">
+                <div class="ai-req-title">
+                    <span>Apple Intelligence 系統與裝置需求參考</span>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">
+                    要使用 Apple Intelligence，使用者之裝置與設定必須符合以下硬體、軟體、儲存空間與區域條件：
+                </p>
+                <div class="ai-req-list">
+                    <div class="ai-req-item">
+                        <strong>1. 支援的硬體設備</strong>
+                        <ul class="ai-req-sublist">
+                            <li><strong>iPhone 系列：</strong>iPhone 17 全系列、iPhone 16 全系列、iPhone 15 Pro、iPhone 15 Pro Max、iPhone Air</li>
+                            <li><strong>iPad 系列：</strong>搭載 M1 晶片（或更新版本）之 iPad Air / iPad Pro、iPad mini (A17 Pro)</li>
+                            <li><strong>Mac 系列：</strong>搭載 M1 晶片（或更新版本）之 MacBook Air / Pro / Neo、iMac、Mac mini、Mac Studio 與 Mac Pro</li>
+                            <li><strong>其他裝置：</strong>Apple Vision Pro
+                        </ul>
+                    </div>
+                    <div class="ai-req-item">
+                        <strong>2. 系統版本要求</strong>
+                        <ul class="ai-req-sublist">
+                            <li>需更新至 iOS 26、iPadOS 26、macOS 26 或 visionOS 26（或以上版本）</li>
+                        </ul>
+                    </div>
+                    <div class="ai-req-item">
+                        <strong>3. 儲存空間需求</strong>
+                        <ul class="ai-req-sublist">
+                            <li><strong>基礎規格需求：</strong>需預留至少 8GB 的剩餘儲存空間</li>
+                        </ul>
+                    </div>
+                    <div class="ai-req-item">
+                        <strong>4. 區域限制</strong>
+                        <ul class="ai-req-sublist">
+                            <li><strong>中國大陸：</strong>在中國大陸購買或使用的裝置目前無法使用 Apple Intelligence。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3>三、行車安全與免責聲明</h3>
+            <ul>
+                <li><strong>遵守交通規則：</strong>請勿在駕駛或騎乘行駛期間手持操作本 App，請務必遵守道路交通安全法規。</li>
+                <li><strong>資料僅供參考：</strong>測速照相點、路況告示、油價、換電站與 AI 總結等資訊僅供行車輔助參考，現場號誌、道路標線與實際路況具備絕對優先權。</li>
+                <li><strong>AI 服務提供條件：</strong>本 App 中的 AI（Apple Intelligence）相關功能依賴 Apple 平台之支援與服務可用性，非承諾性功能，且須在 App 設定中具備並啟用 Apple Intelligence 設定方可使用。若因 Apple 系統限制、地區限制、政策更迭或服務異動導致該功能無法使用，開發者不負擔補償或保證之責任。</li>
+                <li><strong>責任限制：</strong>開發者對於因使用本 App 資訊所導致之任何行程延誤、交通事故、電量耗損或財產損失不承擔責任。</li>
+            </ul>
+
+            <div class="external-button-row">
+                <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" class="apple-btn" target="_blank" rel="noopener">
+                    檢視 Apple 官方 Standard EULA
+                </a>
+            </div>
+        </article>
+ 
+        <article id="privacy" class="card">
+            <div class="section-header">
+                <h2>AutoTool 隱私權政策</h2>
+                <span class="date-badge">生效日期：2026 年 10 月 14 日</span>
+            </div>
+
+            <p class="intro-text">
+                AutoTool（以下稱「本 App」）由 Tsang Hing Tat（以下稱「開發者」）提供。本政策說明本 App 如何使用、儲存及分享資料。
+            </p>
+
+            <h3>一、本 App 會使用哪些資料</h3>
+
+            <h4>1. 定位與行程資料</h4>
+            <p>
+                使用行程記錄、測速提醒、停車記錄或地圖功能時，本 App 可能使用裝置的位置、行進方向、速度與定位時間。記錄行程時，這些資料會用來呈現路線及行程資訊；停車功能也可將位置與地址保存為停車紀錄。
+            </p>
+            <p>
+                行程和停車資料主要保存在你的裝置上。本 App 會在你使用相關功能時取得定位；記錄行程期間，定位可能在背景中持續運作，以完成路線記錄。你可在 iOS「設定」中管理定位權限。
+            </p>
+
+            <h4>2. 你輸入或保存的資料</h4>
+            <p>
+                本 App 可讓你保存車輛資料、保險與保養紀錄、停車租約、停車備註及照片。這些內容主要保存在你的裝置上，並可能包含你自行輸入的個人資料。
+            </p>
+
+            <h4>3. 相機與照片</h4>
+            <p>
+                使用停車照片功能時，本 App 會在你操作時使用相機拍照；照片會附加於相應紀錄並保存在裝置上。未經你的操作，本 App 不會主動拍照或上傳照片。
+            </p>
+
+            <h4>4. 診斷資料</h4>
+            <p>
+                診斷功能預設關閉。只有在你閱讀告知內容並同意啟用後，本 App 才會將診斷資料傳送至開發者的診斷伺服器。資料可能包含裝置名稱、裝置廠商識別碼、應用程式日誌、設定、操作過程、位置相關資訊及網路連線資訊（例如 IP 位址）。
+            </p>
+            <p>
+                診斷資料僅用於問題分析與技術支援。依啟用診斷時顯示的告知內容，資料最長可能保存 30 天。你可在本 App 的診斷設定中關閉此功能；關閉後，本 App 不會繼續主動傳送診斷日誌。
+            </p>
+
+            <h3>二、資料如何儲存與分享</h3>
+            <p>除本政策所述情況外，你的車輛、行程、停車及照片紀錄不會由本 App 自動傳送給開發者。</p>
+            <p>
+                你可使用本 App 的「資料轉移」功能，將 App 資料傳送至你選擇的附近裝置。傳送前請確認接收裝置及對象正確；接收者取得資料後，可能可查看其中包含的行程、車輛、停車紀錄或設定。
+            </p>
+            <p>
+                若你已啟用 Apple 裝置備份，裝置上的 App 資料可能依 Apple 的備份設定納入備份，相關處理由 Apple 的政策及你的裝置設定決定。
+            </p>
+            <p>開發者不會出售你的個人資料，也不會將其用於廣告追蹤。</p>
+
+            <h3>三、第三方服務</h3>
+            <p>本 App 會連線取得公開或第三方提供的測速點、換電站及油價資料。連線服務可能依其自身政策處理一般網路連線資訊，例如 IP 位址。</p>
+            <p>
+                使用地圖、地點搜尋或路線功能時，相關位置或搜尋資訊可能由 Apple 地圖服務處理。若你選擇開啟 Apple 地圖、Google 地圖或其他導航服務，目的地座標等資訊會交由你選用的服務處理，並適用該服務自己的隱私權政策。
+            </p>
+
+            <h3>四、資料保存與刪除</h3>
+            <p>
+                你可以在本 App 中刪除個別行程、停車或車輛紀錄。移除本 App 也會移除保存在裝置 App 資料區中的資料；若資料已納入裝置備份，仍可能保留於該備份中，並依 Apple 的備份管理方式處理。
+            </p>
+            <p>若你曾同意啟用診斷功能，並希望詢問診斷資料的處理或刪除方式，請透過下方聯絡方式聯繫開發者。</p>
+
+            <h3>五、兒童隱私</h3>
+            <p>本 App 並非專為兒童設計。若監護人認為兒童曾透過診斷功能提供個人資料，請聯絡開發者協助處理。</p>
+
+            <h3>六、政策更新</h3>
+            <p>本政策可能因功能或資料處理方式變更而更新。更新版本會在本頁公布，並標示新的生效日期。</p>
+
+            <h3>七、聯絡方式</h3>
+            <p>如對本政策或個人資料處理方式有疑問，請透過 E-mail 聯絡開發者：</p>
+            <div class="external-button-row">
+                <a href="mailto:hingtattsang0116@gmail.com" class="apple-btn apple-btn-secondary">
+                    聯絡開發者：hingtattsang0116@gmail.com
+                </a>
+            </div>
+        </article>
+    </main>
+ 
+    <footer class="apple-footer">
+        <div class="footer-links">
+            <a href="#terms">使用條款 (Terms)</a>
+            <span>•</span>
+            <a href="#privacy">隱私權政策 (Privacy)</a>
+            <span>•</span>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Apple Standard EULA</a>
+        </div>
+        <p>&copy; 2026 Tsang Hing Tat. AutoTool. 保留所有權利。</p>
+    </footer>
+ 
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="回到頁面頂部">
+        <svg viewBox="0 0 24 24">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+ 
+    <script>
+        const btnTerms = document.getElementById('tab-terms');
+        const btnPrivacy = document.getElementById('tab-privacy');
+        const secTerms = document.getElementById('terms');
+        const secPrivacy = document.getElementById('privacy');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        function updateActiveTab() {
+            const scrollPos = window.scrollY + 120;
+            const privacyTop = secPrivacy.offsetTop;
+
+            if (scrollPos >= privacyTop) {
+                btnPrivacy.classList.add('active');
+                btnTerms.classList.remove('active');
+            } else {
+                btnTerms.classList.add('active');
+                btnPrivacy.classList.remove('active');
+            }
+
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        }
+
+        window.addEventListener('scroll', updateActiveTab, { passive: true });
+        updateActiveTab();
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
